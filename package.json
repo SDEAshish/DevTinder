@@ -1,0 +1,25 @@
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Aksharma2799/DevTinder#readme",
+  "bugs": {
+    "url": "https://github.com/Aksharma2799/DevTinder/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aksharma2799/DevTinder.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
