@@ -1,27 +1,31 @@
 const express = require("express");
-
+const connectDB = require("./config/db");
 const app = express();
 
-app.use("/admin", (req, res, next) => {
-  console.log("Admin auth is checked...");
+// const { adminAuth, userAuth } = require("./middlewares/auth");
 
-  const token = "xyz";
-  const isAdminAuthorized = token === "xyz";
-  if (!isAdminAuthorized) {
-    res.status(401).send("unauthorized request");
-  } else {
-    next();
-  }
-});
+connectDB()
+  .then(() => {
+    console.log("Database connection established...");
+    app.listen(3000, () => {
+      console.log("server start at port no.3000");
+    });
+  })
+  .catch((err) => {
+    console.error("Database cannot be connected...");
+  });
 
-app.get("/admin/getAllData", (req, res) => {
-  res.send("All Data send");
-});
+// app.use("/admin", adminAuth);
+// // app.use("/", userAuth);
 
-app.get("/admin/deleteUser", (req, res) => {
-  res.send("All Data Delete");
-});
+// app.get("/admin/getAllData", (req, res) => {
+//   res.send("All Data send");
+// });
 
-app.listen(3000, () => {
-  console.log("server start at port no.3000");
-});
+// app.get("/admin/deleteUser", (req, res) => {
+//   res.send("All Data Delete");
+// });
+
+// app.get("/user", userAuth, (req, res) => {
+//   res.send("All user data fethched");
+// });
